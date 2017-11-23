@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Test API 
+  version: 0.1.0
+
+x-tagGroups:
+  - name: API specification
+    tags:
+      - Base
+paths:
+  /base:
+    get:
+      tags:
+        - Base
+      summary: Get base
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - allOf:
+                      - type: object
+                        properties:
+                          href:
+                            type: string
+                            nullable: true
+                      - type: object
+                        properties:
+                          location:
+                            type: string
+                  - type: object
+                    properties:
+                      meta:
+                        type: object
+                        properties:
+                          response_at:
+                            type: string
+                            format: date-time
+                            example: '2017-01-01T01:01:01Z'
